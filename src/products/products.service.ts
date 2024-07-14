@@ -17,6 +17,11 @@ export class ProductsService {
   async findOne(id: number) {
     return this.databaseService.product.findUnique({
       where: { id },
+      include: {
+        tags: true,
+        description: true,
+        reviews: true,
+      },
     });
   }
 
